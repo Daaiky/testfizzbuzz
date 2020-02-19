@@ -1,22 +1,26 @@
 'use strict';
 
-document.getElementById('btn').addEventListener('click',()=>{
+const hoge = document.getElementById('btn');
+hoge.addEventListener('click',()=>{
 
     const li = document.createElement('li');
-    const fizz = document.getElementById('Fizz');
-    const buzz = document.getElementById('Buzz');
-
+    const fizz = document.getElementById('Fizz').value;
+    const buzz = document.getElementById('Buzz').value;
+    
+    const fizznumber = Number.parseInt(fizz);
+    const buzznumber = Number.parseInt(buzz);
+    
     for(let i = 1 ; i <= 100 ; i++){
-        if(isNaN(fizz.value || buzz.value)){
-            if(i % fizz.value === 0 && i % buzz.value === 0){
+        if(isNaN(fizznumber && buzznumber)){
+            li.textContent = `整数値を入力してください`;
+        }else{
+            if(i % fizznumber === 0 && i % buzznumber === 0){
                 li.textContent = `fizzbuzz${i}`;
-            }else if(i % fizz.value === 0){
+            }else if(i % fizznumber === 0){
                 li.textContent = `fizz${i}`;
-            }else if(i % buzz.value === 0){
+            }else if(i % buzznumber === 0){
                 li.textContent = `buzz${i}`;
             }
-        }else{
-            li.textContent = `整数値を入力してください`;
         }
         document.getElementById('lists').appendChild(li);
     }
