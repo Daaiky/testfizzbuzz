@@ -16,6 +16,7 @@ btn.addEventListener('click' , () => {
     const buzzNumber = Number.parseInt(buzz);
 
     const li = document.createElement('li');
+
     if(isNaN(fizzNumber && buzzNumber)){
         li.textContent = `整数値を入力してください`;
         lists.appendChild(li);
@@ -29,7 +30,9 @@ btn.addEventListener('click' , () => {
                 }else if(i % buzzNumber === 0){
                     li.textContent = `buzz${i}`;
                 }
-        lists.appendChild(li);
+                if(!(li.textContent === '')){
+                    lists.appendChild(li);
+                }
         }
     }
 });
